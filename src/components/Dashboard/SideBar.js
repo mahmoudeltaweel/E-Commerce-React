@@ -8,7 +8,6 @@ import { WindowSize } from "../../Context/WindowContext";
 export default function SideBar() {
   const menu = useContext(Menu);
   const isOpen = menu.isOpen;
-console.log(isOpen);
 
   const windowContext=useContext(WindowSize);
   const sizewindow = windowContext.windowSize;
