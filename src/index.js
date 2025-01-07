@@ -5,7 +5,7 @@ import "./Css/components/button.css"
 import "./Css/components/alerts.css"
 import "./Css/components/loading.css"
 import "./Css/components/google.css"
-import "./pages/Auth/Auth.css"
+import './pages/Auth/AuthOperations/Auth.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';

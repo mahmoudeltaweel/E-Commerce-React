@@ -1,59 +1,70 @@
 import { useState } from "react";
-import { baseURL, LOGIN } from "../../Api/Api";
+import { baseURL, REGISTER  } from "../../../Api/Api";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Loading from "../../components/Loading/Loading";
-import google from "../../../src/images.jpg";
-import Cookie from "cookie-universal";
+import Loading from "../../../components/Loading/Loading";
+import Cookie from "cookie-universal"
 import { Form } from "react-bootstrap";
+import google from "../../../images.jpg";
 
-export default function Login() {
+
+
+export default function Register() {
   // states
   const [form, setForm] = useState({
+    name: "",
     email: "",
     password: "",
   });
-  //   loading
-  const [loading, setLoading] = useState(false);
-  // cookie
-  const cookie = Cookie();
-  // navigat
-  const nav = useNavigate();
-  // error
-  const [err, setErr] = useState("");
+  // cookie 
+    const cookie = Cookie(); 
+//   loading 
+const [loading , setLoading]=useState(false);
+//   navigat 
+const nav = useNavigate();
+// error 
+  const [err,setErr]=useState("");
 
-  function handelchange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  function handelchange(e){
+    setForm({...form , [e.target.name] : e.target.value})
   }
 
-  async function handelsubmit(e) {
-    e.preventDefault();
+  async function handelsubmit(e){
+    e.preventDefault()
     setLoading(true);
-    try {
-      const res = await axios.post(`${baseURL}/${LOGIN}`, form);
-      nav("/");
-      setLoading(false);
-      const token = res.data.token;
-      cookie.set("e-commerce", token);
-    } catch (err) {
-      if (err.response.status === 401) {
-        setErr("Email or password is wrong");
-      } else {
-        setErr("internal server Error");
-      }
-
-      setLoading(false);
+        try{
+       const res = await axios.post(`${baseURL}/${REGISTER}`, form)
+        const token = res.data.token;
+        cookie.set("e-commerce" , token)
+        nav("/");
+        setLoading(false);
+    }catch(err){
+        if(err.response.status===422){
+            setErr("Email is already Taken")
+        }else{
+            setErr("internal server Error")
+        }
+        setLoading(false);
     }
   }
 
   return (
     <>
-      {loading && <Loading />}
-      <div className="container">
+    {loading && <Loading />}
+    <div className="container">
         <div className="row" style={{height:"100vh"}}>
           <Form className="form" onSubmit={handelsubmit}>
             <div className="custom-form">
-              <h1 className="mb-5">Login</h1>
+              <h1 className="mb-5">Register Now</h1>
+              <Form.Group
+                className="form-custom"
+                controlId="exampleForm.ControlInput3"
+              >
+                <Form.Label>Email:</Form.Label>
+                <Form.Control type="text" placeholder="Enter your Name.... " name="name"
+                  required value={form.name}
+                  onChange={handelchange}  />
+              </Form.Group>
               <Form.Group
                 className="form-custom"
                 controlId="exampleForm.ControlInput1"
@@ -73,7 +84,7 @@ export default function Login() {
                   onChange={handelchange}  />
               </Form.Group>
 
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary">Register</button>
               <div className="google-btn">
                 <a href={`http://127.0.0.1:8000/login-google`}>
                   <div className="google-icon-wrapper">

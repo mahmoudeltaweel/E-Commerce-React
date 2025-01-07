@@ -1,5 +1,5 @@
 .form{
-    background-image:linear-gradient(110deg , rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.9) 50% , transparent 50% ) ,url("../../formimage.jpg");
+    background-image:linear-gradient(110deg , rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.9) 50% , transparent 50% ) ,url("../../../formimage.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -67,7 +67,7 @@
           rgba(255, 255, 255, 0.8) 100%,
           rgba(255, 255, 255, 0.9) 100%
         ),
-        url("../../formimage.jpg");
+        url("../../../formimage.jpg");
     }
     .form-custom input {
       width: 100%;
