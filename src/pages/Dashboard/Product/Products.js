@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Tableshow from "../Table";
+import Tableshow from "../../../components/Dashboard/Table";
 import { PRODUCT, PRODUCTS } from "../../../Api/Api";
 import { Axios } from "../../../Api/axios";
 
@@ -8,11 +8,13 @@ import { Axios } from "../../../Api/axios";
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [delteProduct, setDelteProduct] = useState(true);
+  
+  console.log("products",products)
 
   const header=[
     {
-      key:"category",
-      name:"category"
+      key:"images",
+      name:"Images"
     },
     {
       key:"title",

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Tableshow from "../Table";
+import Tableshow from "../../../components/Dashboard/Table";
 import { Axios } from "../../../Api/axios";
 import { USER, USERS } from "../../../Api/Api";
 export default function Users() {

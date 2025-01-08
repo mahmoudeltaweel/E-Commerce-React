@@ -30,8 +30,6 @@ export default function CreateProduct() {
 
   const [images, setImage] = useState([]);
   const ids=useRef([])
-  console.log(ids);
-  
 
   const nav = useNavigate();
 
@@ -74,7 +72,6 @@ export default function CreateProduct() {
     try {
       const res = await Axios.post(`${PRODUCT}/add`, dummyform);
       setID(res.data.id);
-      console.log(res);
     } catch (err) {
       console.log("err", err);
     }
@@ -267,7 +264,7 @@ export default function CreateProduct() {
         </div>
         <button
           className="btn btn-primary"
-          disabled={form.title.length > 1 ? false : true}
+          disabled={sent ? false : true}
         >
           Save
         </button>

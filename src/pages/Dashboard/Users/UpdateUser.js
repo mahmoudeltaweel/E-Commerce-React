@@ -42,7 +42,8 @@ export default function UpdateUser() {
         name: name,
         email: email,
         role: role,
-      }).then((data)=>console.log(data))
+      })
+      
       nav("/dashboard/users");
     } catch (err) {
       setLoading(false);

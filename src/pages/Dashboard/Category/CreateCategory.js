@@ -21,12 +21,10 @@ export default function CreateCategory(){
     form.append("image",image);
     try {
       const res = await Axios.post(`/${CATEGORY}/add`, form)
-      .then((data)=>console.log(data))
       nav("/dashboard/categories");
     } catch (err) {
       setLoading(false);
       console.log(err);
-      
     }
   }
 

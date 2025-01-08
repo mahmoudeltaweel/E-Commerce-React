@@ -11,7 +11,10 @@ export default function Tableshow(props) {
       <td>{key+1}</td>
       {props.header.map((item, key2) => (
         <td key={key2}>{
-          item.key==="image" ? <img width="40px" src={items[item.key]} alt="catimage" />
+          item.key === "images" ? items[item.key].map((image)=>
+          <img src={image.image} width="40px" className="m-2" alt="imageproduct" />
+          )
+            : item.key==="image" ? <img width="40px" src={items[item.key]} alt="catimage" />
             : items[item.key] === "1995"
             ? "Admin"
             : items[item.key] === "1996"

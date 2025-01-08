@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CATEGORIES, CATEGORY } from "../../../Api/Api";
 import { Axios } from "../../../Api/axios";
-import Tableshow from "../Table";
+import Tableshow from "../../../components/Dashboard/Table";
 
 
 export default function Categories() {

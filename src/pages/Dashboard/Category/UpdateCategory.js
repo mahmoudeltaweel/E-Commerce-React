@@ -32,7 +32,6 @@ export default function UpdateCategory(){
         form.append("image",image);
         try {
           const res = await Axios.post(`/${CATEGORY}/edit/${id}`, form)
-          .then((data)=>console.log(data))
           nav("/dashboard/categories");
         } catch (err) {
           setLoading(false);
